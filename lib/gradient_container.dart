@@ -9,10 +9,14 @@ const endAlignment = Alignment.bottomRight;
 
 // Image.asset() is a contructor function
 class GradientContainer extends StatelessWidget {
-  const GradientContainer(this.colors, {super.key});
+  GradientContainer(this.colors, {super.key});
   final List<Color> colors;
+  var activeDiceImage = "assets/imgs/dice-1.png";
+  void rollDice() {
+    activeDiceImage = "assets/imgs/dice-4.png";
+    print(activeDiceImage);
+  }
 
-  void rollDice() {}
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,7 +32,7 @@ class GradientContainer extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(
-              "assets/imgs/dice-1.png",
+              activeDiceImage,
               width: 200,
             ),
             const SizedBox(
