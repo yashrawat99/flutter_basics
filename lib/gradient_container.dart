@@ -5,22 +5,24 @@ const beginAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
 
 // Alignment beginAlignment = Alignment.topLeft;
-
+// positional argument are always required
+// named argument are optional but we can add required to it
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({super.key});
+  const GradientContainer(this.colors, {super.key});
+  final List<Color> colors;
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.black, Colors.red],
+          colors: colors,
           begin: beginAlignment,
           end: endAlignment,
         ),
       ),
       child: const Center(
         child: CustomText(
-          "yash",
+          "Gradient BG App",
         ),
       ),
     );
