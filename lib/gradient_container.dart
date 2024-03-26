@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/custom_text.dart';
 
 const beginAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
@@ -7,9 +6,13 @@ const endAlignment = Alignment.bottomRight;
 // Alignment beginAlignment = Alignment.topLeft;
 // positional argument are always required
 // named argument are optional but we can add required to it
+
+// Image.asset() is a contructor function
 class GradientContainer extends StatelessWidget {
   const GradientContainer(this.colors, {super.key});
   final List<Color> colors;
+
+  void rollDice() {}
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,9 +23,32 @@ class GradientContainer extends StatelessWidget {
           end: endAlignment,
         ),
       ),
-      child: const Center(
-        child: CustomText(
-          "Gradient BG App",
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              "assets/imgs/dice-1.png",
+              width: 200,
+            ),
+            const SizedBox(
+              height: 20,
+            ), //to add empty height in between
+            TextButton(
+              onPressed: rollDice,
+              style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.all(
+                    20,
+                  ), //for padding
+                  textStyle: const TextStyle(
+                    fontSize: 28,
+                  )),
+              child: const Text(
+                "Roll dice",
+              ),
+            )
+          ],
         ),
       ),
     );
